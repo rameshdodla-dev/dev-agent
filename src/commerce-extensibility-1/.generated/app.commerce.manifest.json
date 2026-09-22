@@ -1,0 +1,42 @@
+{
+  "eventing": {
+    "commerce": [
+      {
+        "events": [
+          {
+            "description": "Triggered after a customer save operation is durably committed.",
+            "fields": [
+              {
+                "name": "id"
+              },
+              {
+                "name": "email"
+              },
+              {
+                "name": "firstname"
+              },
+              {
+                "name": "lastname"
+              }
+            ],
+            "label": "Customer Save Commit After",
+            "name": "observer.customer_save_commit_after",
+            "runtimeActions": [
+              "customer-save-logger/process-customer"
+            ]
+          }
+        ],
+        "provider": {
+          "description": "Subscribes to customer save events and routes them to the processing action.",
+          "label": "Commerce Events Provider"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "description": "Logs processed customer details when a customer is created or updated in Adobe Commerce.",
+    "displayName": "Customer Save Logger",
+    "id": "customer-save-logger",
+    "version": "1.0.0"
+  }
+}
